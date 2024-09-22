@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Listagem Pokémon - Semana do Zero ao Programador Contratado</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap" rel="stylesheet" />
+
+		<link rel="stylesheet" href="./src/css/reset.css">
+		<link rel="stylesheet" href="./src/css/estilos.css">
+		<link rel="stylesheet" href="./src/css/scrollbar.css">
+	</head>
+	<body>
+
+		<header>
+			<a href="#">
+				<img src="./src/imagens/pokeball.png" alt="pokebola" class="logo" />
+			</a>
+
+			<audio id="musicaFundo" src="Hollow Knight OST - Reflection.m4a" autoplay loop></audio>
+
+			<div class="audio-player">
+			  <button id="playButton" class="play-btn">Play</button>
+			  <div id="progressBar" class="progress-bar">
+				<div id="progress" class="progress"></div>
+			  </div>
+			  <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+			</div>
+					
+			<script>
+			  var musica = document.getElementById('musicaFundo');
+			  var playButton = document.getElementById('playButton');
+			  var progressBar = document.getElementById('progressBar');
+			  var progress = document.getElementById('progress');
+			  var currentTimeDisplay = document.getElementById('currentTime');
+			  var durationDisplay = document.getElementById('duration');
+			
+			  playButton.addEventListener('click', function() {
+				if (musica.paused) {
+				  musica.play();
+				  playButton.textContent = 'Pause';
+				} else {
+				  musica.pause();
+				  playButton.textContent = 'Play';
+				}
+			  });
+			
+			  musica.addEventListener('timeupdate', function() {
+				var currentTime = musica.currentTime;
+				var duration = musica.duration;
+			
+				// Atualiza o tempo exibido
+				currentTimeDisplay.textContent = formatTime(currentTime);
+				durationDisplay.textContent = formatTime(duration);
+			
+				// Atualiza a barra de progresso
+				var progressPercent = (currentTime / duration) * 100;
+				progress.style.width = progressPercent + '%';
+			  });
+			
+			  function formatTime(seconds) {
+				var minutes = Math.floor(seconds / 60);
+				var seconds = Math.floor(seconds % 60);
+				return minutes + ':' + (seconds < 10 ? '0' + seconds : seconds);
+			  }
+			</script>
+			
+
+			<button id="botao-alterar-tema">
+				<img src="./src/imagens/sun.png" alt="imagem do sol" class="imagem-botao" />
+			</button>
+		</header>
+		<main>
+			<ul class="listagem-pokemon">
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>Bulbasaur</span>
+						<span>#001</span>
+					</div>
+
+					<img src="./src/imagens/bulbasaur.gif" alt="Bulbasaur" class="gif" />
+
+					<ul class="tipos">
+						<li class="tipo grama">Grama</li>
+						<li class="tipo veneno">Veneno</li>
+					</ul>
+
+					<p class="descricao">Há uma semente de planta em suas costas desde o dia que este Pókemon nasce. A semente cresce lentamente.</p>
+				</li>
+
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>Ivysaur</span>
+						<span>#002</span>
+					</div>
+
+					<img src="./src/imagens/ivysaur.gif" alt="Ivysaur" class="gif" />
+
+					<ul class="tipos">
+						<li class="tipo grama">Grama</li>
+						<li class="tipo veneno">Veneno</li>
+					</ul>
+
+					<p class="descricao">Quando o bulbo em suas costas cresce, parece perder a capacidade de ficar de pé em suas patas traseiras.</p>
+				</li>
+
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>Venusaur</span>
+						<span>#003</span>
+					</div>
+
+					<img src="./src/imagens/venusaur.gif" alt="Venusaur" class="gif" />
+
+					<ul class="tipos">
+						<li class="tipo grama">Grama</li>
+						<li class="tipo veneno">Veneno</li>
+					</ul>
+
+					<p class="descricao">Sua planta floresce quando está absorvendo energia solar. Ele permanece em movimento para buscar a luz solar.</p>
+				</li>
+
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>Charmander</span>
+						<span>#004</span>
+					</div>
+
+					<img src="./src/imagens/charmander.gif" alt="Charmander" class="gif" />
+
+					<ul class="tipos">
+						<li class="tipo fogo">Fogo</li>
+					</ul>
+
+					<p class="descricao">Tem preferência por coisas quentes. Quando chove, diz-se que o vapor jorra da ponta de sua cauda.</p>
+				</li>
+
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>Charmeleon</span>
+						<span>#005</span>
+					</div>
+
+					<img src="./src/imagens/charmeleon.gif" alt="Charmeleon" class="gif" />
+
+					<ul class="tipos">
+						<li class="tipo fogo">Fogo</li>
+					</ul>
+
+					<p class="descricao">Tem uma natureza bárbara. Na batalha, ele chicoteia sua cauda ardente e corta com garras afiadas.</p>
+				</li>
+
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>Charizard</span>
+						<span>#006</span>
+					</div>
+
+					<img src="./src/imagens/charizard.gif" alt="Charizard" class="gif" />
+
+					<ul class="tipos">
+						<li class="tipo fogo">Fogo</li>
+					</ul>
+
+					<p class="descricao">Ele cospe fogo que é quente o suficiente para derreter pedregulhos. Pode causar incêndios florestais soprando chamas.</p>
+				</li>
+
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>Cyndaquil</span>
+						<span>#006</span>
+					</div>
+
+					<img src="./src/imagens/cyndaquil.gif" alt="cyndaquil" class="gif" />
+
+					<ul class="tipos">
+						<li class="tipo fogo">Fogo</li>
+					</ul>
+
+					<p class="descricao">Cyndaquil é um Pokémon de tipo Fogo que emite chamas do seu dorso quando se sente ameaçado. Ele é pequeno e rápido, sempre pronto para usar seu fogo em batalhas.</p>
+				</li>
+
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>Typhlosion</span>
+						<span>#006</span>
+					</div>
+
+					<img src="./src/imagens/typhlosion.gif" alt="typhlosion" class="gif" />
+
+					<ul class="tipos">
+						<li class="tipo fogo">Fogo</li>
+					</ul>
+
+					<p class="descricao">Cyndaquil é um Pokémon de tipo Fogo que emite chamas do seu dorso quando se sente ameaçado. Ele é pequeno e rápido, sempre pronto para usar seu fogo em batalhas.</p>
+				</li>
+
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>Squirtle</span>
+						<span>#007</span>
+					</div>
+
+					<img src="./src/imagens/squirtle.gif" alt="Squirtle" class="gif" />
+
+					<ul class="tipos">
+						<li class="tipo agua">Água</li>
+					</ul>
+
+					<p class="descricao">Quando ele retrai seu longo pescoço em sua concha, ele esguicha água com força vigorosa.</p>
+				</li>
+
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>Wartortle</span>
+						<span>#008</span>
+					</div>
+
+					<img src="./src/imagens/wartortle.gif" alt="Wartortle" class="gif" />
+
+					<ul class="tipos">
+						<li class="tipo agua">Água</li>
+					</ul>
+
+					<p class="descricao">É reconhecido como um símbolo de longevidade. Se sua concha tem algas, esse Wartortle é muito antigo.</p>
+				</li>
+
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>Blastoise</span>
+						<span>#009</span>
+					</div>
+
+					<img src="./src/imagens/blastoise.gif" alt="Blastoise" class="gif" />
+
+					<ul class="tipos">
+						<li class="tipo agua">Água</li>
+					</ul>
+
+					<p class="descricao">Ele esmaga seu inimigo sob seu corpo pesado para causar desmaios. Em uma pitada, ele se retirará dentro de sua concha.</p>
+				</li>
+
+				<li class="cartao-pokemon">
+					<div class="informacoes">
+						<span>vaporeon</span>
+						<span>#010</span>
+					</div>
+	
+					<img src="src/imagens/vaporeon2.gif" alt="Blastoise" class="gif" width="10px"/>
+	
+					<ul class="tipos">
+						<li class="tipo agua">Água</li>
+					</ul>
+	
+					<p class="descricao">Vaporeon usa seu corpo pesado para esmagar inimigos e pode se refugiar rapidamente em sua concha quando ameaçado.</p>
+				</li>
+				
+					<li class="cartao-pokemon">
+						<div class="informacoes">
+							<span>Pichu</span>
+							<span>#011</span>
+						</div>
+	
+						<img src="src/imagens/pichu.gif" alt="Caterpie" class="gif"/>
+	
+						<ul class="tipos">
+							<li class="tipo eletrico">Elétrico</li>
+						</ul>
+	
+						<p class="descricao">Pichu é um Pokémon elétrico pequeno que gera pequenas descargas elétricas e pode se machucar com elas.</p>
+
+					</li>
+
+					<li class="cartao-pokemon">
+						<div class="informacoes">
+							<span>Pikachu</span>
+							<span>#012</span>
+						</div>
+	
+						<img src="src/imagens/pikachu.gif" alt="pikachu" class="gif"/>
+	
+						<ul class="tipos">
+							<li class="tipo eletrico">Elétrico</li>
+						</ul>
+	
+						<p class="descricao">Pikachu é um Pokémon elétrico que usa suas habilidades para lançar potentes descargas elétricas em combate.</p>
+					</li>
+
+					<li class="cartao-pokemon">
+						<div class="informacoes">
+							<span>Raichu</span>
+							<span>#013</span>
+						</div>
+	
+						<img src="src/imagens/raichu.gif" alt="raichu" class="gif"/>
+	
+						<ul class="tipos">
+							<li class="tipo eletrico">Elétrico</li>
+						</ul>
+	
+						<p class="descricao">Pikachu é um Pokémon elétrico que usa suas habilidades para lançar potentes descargas elétricas em combate.</p>
+					</li>
+
+					<li class="cartao-pokemon">
+						<div class="informacoes">
+							<span>Caterpie</span>
+							<span>#014</span>
+						</div>
+	
+						<img src="./src/imagens/caterpie.gif" alt="Caterpie" class="gif" />
+	
+						<ul class="tipos">
+							<li class="tipo inseto">Inseto</li>
+						</ul>
+	
+						<p class="descricao">Para proteção, ele libera um fedor horrível da antena em sua cabeça para afastar os inimigos.</p>
+					</li>
+
+					<li class="cartao-pokemon">
+						<div class="informacoes">
+							<span>Butterfly</span>
+							<span>#015</span>
+						</div>
+	
+						<img src="src/imagens/butterfly.gif" alt="Caterpie" class="gif" />
+	
+						<ul class="tipos">
+							<li class="tipo inseto">Inseto</li>
+						</ul>
+	
+						<p class="descricao">Para proteção, ele libera um fedor horrível da antena em sua cabeça para afastar os inimigos.</p>
+					</li>
+
+					<li class="cartao-pokemon">
+						<div class="informacoes">
+							<span>Snorlax</span>
+							<span>#016</span>
+						</div>
+	
+						<img src="src/imagens/snorlax.gif" alt="snorlax" class="gif" />
+	
+						<ul class="tipos">
+							<li class="tipo normal">Normal</li>
+						</ul>
+	
+						<p class="descricao">Snorlax passa a maior parte do tempo dormindo, mas quando acorda, é capaz de devorar qualquer comida à sua frente.</p>
+					</li>
+
+					<li class="cartao-pokemon">
+						<div class="informacoes">
+							<span>Meowfh</span>
+							<span>#017</span>
+						</div>
+	
+						<img src="src/imagens/meowfh.gif" alt="meowfh" class="gif" />
+	
+						<ul class="tipos">
+							<li class="tipo normal">Normal</li>
+						</ul>
+	
+						<p class="descricao">Meowth é um Pokémon astuto e encantador que adora roubar objetos e se exibir com truques.</p>
+					</li>
+
+					<li class="cartao-pokemon">
+						<div class="informacoes">
+							<span>Eevee</span>
+							<span>#018</span>
+						</div>
+	
+						<img src="src/imagens/eevee.gif" alt="Eevee" class="gif" />
+	
+						<ul class="tipos">
+							<li class="tipo normal">Normal</li>
+						</ul>
+	
+						<p class="descricao">Eevee pode evoluir para várias formas diferentes, adaptando-se às condições ao seu redor e às necessidades de batalha.</p>
+					</li>
+
+			</li>
+
+			
+			</ul>
+		</main>
+
+		<script src="./src/js/index.js"></script>
+	</body>
+</html>
